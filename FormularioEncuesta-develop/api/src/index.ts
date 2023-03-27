@@ -4,7 +4,7 @@ import database from "./config/database";
 import morgan from "morgan";
 import cors from "cors";
 import "reflect-metadata";
-import { PORT } from "./config/config";
+import { PORT, DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT} from "./config/config";
 
 const app = express();
 
@@ -18,5 +18,7 @@ database.initialize()
 
 app.use("/api", RouterController);
 app.listen(PORT, () => {
+  
   console.log(`App execute in port: ${PORT}`);
+  console.log(DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT);
 });
