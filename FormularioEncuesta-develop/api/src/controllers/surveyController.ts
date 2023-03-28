@@ -11,9 +11,7 @@ export class SurveyController {
         ):Promise<void> {
             try {
                 const surveys = await this.repository.list()
-                surveys.length === 0 
-                ? res.status(200).send({msg: "No hay encuestas cargadas en la DB"})
-                : res.status(200).send(surveys)    
+                res.status(200).send(surveys)    
             } catch (error) {
                 next(error)
             }
